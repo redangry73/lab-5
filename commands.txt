@@ -1,0 +1,83 @@
+git clone <URL_вашего_репозитория>
+cd <имя_репозитория>
+
+cat > README.md << 'EOF'
+# Название книги
+
+## Глава 1: Введение
+Здесь будет введение в тему книги.
+
+## Глава 2: Основы Git
+Основные понятия и команды Git.
+EOF
+git add README.md
+git commit -m "Initial README with chapters 1 and 2"
+git push origin main
+
+git checkout -b feature-login
+cat > README.md << 'EOF'
+# Название книги
+
+## Глава 1: Введение
+Здесь будет введение в тему книги.
+
+## Глава 2: Основы Git
+Основные понятия и команды Git.
+
+## Глава 3: Вход в систему
+Раздел по новой функциональности входа в систему.
+EOF
+git add README.md
+git commit -m "Добавлена глава 3: Вход в систему"
+git push origin feature-login
+
+git checkout main
+cat > README.md << 'EOF'
+# Название книги: Приключения в мире Git
+
+## Глава 1: Введение
+Здесь будет введение в удивительный мир Git.
+
+## Глава 2: Основы Git
+Основные понятия и команды Git.
+EOF
+git add README.md
+git commit -m "Изменено название книги и введение"
+git push origin main
+
+git checkout feature-login
+cat > README.md << 'EOF'
+# Название книги: Приключения в мире Git
+
+## Глава 1: Введение
+Здесь будет введение в удивительный мир Git.
+
+## Глава 2: Основы Git и магия конфликтов
+Основные понятия и команды Git, а также волшебство разрешения конфликтов.
+
+## Глава 3: Вход в систему
+Раздел по новой функциональности входа в систему.
+EOF
+git add README.md
+git commit -m "Добавлен раздел о магии конфликтов"
+git push origin feature-login
+
+git checkout main
+git pull origin main
+git merge feature-login
+
+cat > README.md << 'EOF'
+# Название книги: Приключения в мире Git
+
+## Глава 1: Введение
+Здесь будет введение в удивительный мир Git.
+
+## Глава 2: Основы Git и магия конфликтов
+Основные понятия и команды Git, а также волшебство разрешения конфликтов.
+
+## Глава 3: Вход в систему
+Раздел по новой функциональности входа в систему.
+EOF
+git add README.md
+git commit -m "Resolved conflict in chapter 2"
+git push origin main
